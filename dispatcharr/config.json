@@ -1,0 +1,30 @@
+{
+  "name": "Dispatcharr",
+  "slug": "dispatcharr",
+  "description": "Proxy M3U/EPG & HDHomeRun out",
+  "version": "0.4.1",
+  "startup": "services",
+  "boot": "auto",
+  "image": "ghcr.io/dispatcharr/dispatcharr:0.4.1-{arch}",
+  "url": "https://github.com/Dispatcharr/Dispatcharr",
+  "arch": ["aarch64", "armv7", "amd64"],
+  "ingress": true,
+  "ingress_port": 9191,
+  "ingress_entry": "/",
+  "panel_icon": "mdi:television-guide",
+  "ports": {
+    "9191/tcp": 9191,
+    "8001/tcp": 8001
+  },
+  "map": ["share:rw"],
+  "options": {
+    "TZ": "Africa/Casablanca",
+    "PUID": 1000,
+    "PGID": 1000
+  },
+  "schema": {
+    "TZ": "str?",
+    "PUID": "int?",
+    "PGID": "int?"
+  }
+}
