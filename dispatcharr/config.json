@@ -5,7 +5,7 @@
   "version": "0.4.1",
   "startup": "services",
   "boot": "auto",
-  "image": "ghcr.io/dispatcharr/dispatcharr:0.4.1-{arch}",
+  "image": "ghcr.io/dispatcharr/dispatcharr",
   "url": "https://github.com/Dispatcharr/Dispatcharr",
   "arch": ["aarch64", "armv7", "amd64"],
   "ingress": true,
