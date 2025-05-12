@@ -1,0 +1,7 @@
+{
+  "name": "lem's Add-ons",
+  "url": "https://github.com/LeMehdi0/ha-addons",
+  "maintainer": "lem",
+  "source": "https://github.com/LeMehdi0/ha-addons",
+  "addons": ["dispatcharr"]
+}
