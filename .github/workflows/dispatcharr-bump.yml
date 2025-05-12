@@ -8,20 +8,18 @@ on:
 jobs:
   bump:
     runs-on: ubuntu-latest
-
-    # 👉 Donne l'autorisation d'écrire dans le dépôt
     permissions:
-      contents: write
+      contents: write    # pour pousser
 
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Get latest tag
         id: latest
         run: |
-          tag=$(curl -s https://api.github.com/repos/Dispatcharr/Dispatcharr/releases/latest | jq -r .tag_name)
-          echo "tag=$tag" >> $GITHUB_OUTPUT
+          tag=$(curl -s https://api.github.com/repos/Dispatcharr/Dispatcharr/releases/latest \
+                | jq -r .tag_name | sed 's/^v//')   # 🔪 retire le « v »
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
 
       - name: Update config.json if needed
         run: |
@@ -33,12 +31,13 @@ jobs:
             jq --arg tag "$tag" '.version=$tag' "$file" > tmp && mv tmp "$file"
           else
             echo "Already on $tag — nothing to do"
+            exit 0
           fi
 
       - name: Commit & push
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "⬆️  Dispatcharr to ${{ steps.latest.outputs.tag }}"
-          commit_user_name: "github-actions[bot]"
-          commit_user_email: "41898282+github-actions[bot]@users.noreply.github.com"
-          token: ${{ secrets.GITHUB_TOKEN }}      # 👉 jeton avec droits d'écriture
+          commit_user_name: github-actions[bot]
+          commit_user_email: 41898282+github-actions[bot]@users.noreply.github.com
+          file_pattern: dispatcharr/config.json   # pousse uniquement ce fichier
