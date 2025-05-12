@@ -2,12 +2,16 @@ name: Auto-bump Dispatcharr
 
 on:
   schedule:
-    - cron: '0 6 * * *'      # tous les jours à 06h (heure Maroc)
-  workflow_dispatch:          # pour déclencher manuellement si tu veux
+    - cron: '0 6 * * *'
+  workflow_dispatch:
 
 jobs:
   bump:
     runs-on: ubuntu-latest
+
+    # 👉 Donne l'autorisation d'écrire dans le dépôt
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout repo
@@ -37,4 +41,4 @@ jobs:
           commit_message: "⬆️  Dispatcharr to ${{ steps.latest.outputs.tag }}"
           commit_user_name: "github-actions[bot]"
           commit_user_email: "41898282+github-actions[bot]@users.noreply.github.com"
-          skip_dirty_check: false
+          token: ${{ secrets.GITHUB_TOKEN }}      # 👉 jeton avec droits d'écriture
