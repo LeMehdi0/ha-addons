@@ -36,9 +36,9 @@
     "TZ": "str?",
     "PUID": "int?",
     "PGID": "int?",
-    "CELERY_WORKER_CONCURRENCY": "int?",
-    "UWSGI_PROCESSES": "int?",
-    "UWSGI_GEVENT": "int?",
-    "DISPATCHARR_SKIP_IP_LOOKUP": "bool?"
+    "celery_worker_concurrency": "int?",
+    "uwsgi_processes": "int?",
+    "uwsgi_gevent": "int?",
+    "dispatcharr_skip_ip_lookup": "bool?"
   }
 }
