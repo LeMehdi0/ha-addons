@@ -5,7 +5,7 @@
   "version": "latest",
   "startup": "services",
   "boot": "auto",
-  "image": "ghcr.io/lemehdi0/m3u-editor"
+  "image": "ghcr.io/lemehdi0/m3u-editor-{arch}",
   "url": "https://github.com/sparkison/m3u-editor",
   "arch": ["aarch64", "armv7", "amd64"],
   "ingress": true,
