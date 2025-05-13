@@ -2,10 +2,10 @@
   "name": "Dispatcharr",
   "slug": "dispatcharr",
   "description": "Proxy M3U/EPG & HDHomeRun out",
-  "version": "0.4.1",
+  "version": "0.4.1.1",
   "startup": "services",
   "boot": "auto",
-  "image": "ghcr.io/lemehdi0/dispatcharr:latest",
+  "image": "ghcr.io/lemehdi0/dispatcharr",
   "url": "https://github.com/LeMehdi0/Dispatcharr",
   "arch": [
     "aarch64",
