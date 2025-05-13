@@ -26,11 +26,19 @@
   "options": {
     "TZ": "Africa/Casablanca",
     "PUID": 1000,
-    "PGID": 1000
+    "PGID": 1000,
+    "CELERY_WORKER_CONCURRENCY": 2,
+    "UWSGI_PROCESSES": 2,
+    "UWSGI_GEVENT": 50,
+    "DISPATCHARR_SKIP_IP_LOOKUP": true
   },
   "schema": {
     "TZ": "str?",
     "PUID": "int?",
-    "PGID": "int?"
+    "PGID": "int?",
+    "CELERY_WORKER_CONCURRENCY": "int?",
+    "UWSGI_PROCESSES": "int?",
+    "UWSGI_GEVENT": "int?",
+    "DISPATCHARR_SKIP_IP_LOOKUP": "bool?"
   }
 }
