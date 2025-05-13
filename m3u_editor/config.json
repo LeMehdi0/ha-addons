@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "startup": "services",
   "boot": "auto",
-  "image": "sparkison/m3u-editor:latest",
+  "image": "sparkison/m3u-editor",
   "url": "https://github.com/sparkison/m3u-editor",
   "arch": ["aarch64", "armv7", "amd64"],
   "ingress": true,
