@@ -16,5 +16,10 @@ if [[ -z "$APP_KEY" || "$APP_KEY" == "null" ]]; then
 fi
 export APP_KEY
 
+# --- correctif persistance ---
+mkdir -p /data
+[ -d /var/www/config ] || ln -s /data /var/www/config
+# -----------------------------
+
 bashio::log.info "Launching M3U-Editor..."
 exec docker-entrypoint.sh
