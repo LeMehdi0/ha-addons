@@ -33,5 +33,5 @@ jobs:
         with:
           context: ./m3u_editor
           push: true
-          tags: ghcr.io/${{ github.repository_owner }}/m3u-editor:latest
+          tags: ghcr.io/${{ github.repository_owner.toLowerCase() }}/m3u-editor:latest
           platforms: linux/amd64,linux/arm64,linux/arm/v7
