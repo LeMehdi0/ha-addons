@@ -18,8 +18,12 @@ export APP_KEY
 
 
 mkdir -p /data
-[ -d /var/www/config ] || ln -s /data /var/www/config
+mkdir -p /var/www
 
+if [ ! -L /var/www/config ]; then
+  ln -s /data /var/www/config
+  bashio::log.info "Lien /var/www/config → /data créé"
+fi
 
 bashio::log.info "Launching M3U-Editor..."
 exec docker-entrypoint.sh
