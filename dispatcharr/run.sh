@@ -12,12 +12,15 @@ DISPATCHARR_SKIP_IP_LOOKUP=$(bashio::config 'DISPATCHARR_SKIP_IP_LOOKUP')
 export TZ=${TZ:-UTC}
 export PUID=${PUID:-0}
 export PGID=${PGID:-0}
-
 export CELERY_WORKER_CONCURRENCY
 export UWSGI_PROCESSES
 export UWSGI_GEVENT
 export DISPATCHARR_SKIP_IP_LOOKUP
 
-bashio::log.info "Starting Dispatcharr..."
-exec s6-setuidgid "$PUID:$PGID" \
-     docker-entrypoint.sh serve --config /data/dispatcharr.yml
+bashio::log.info "Dispatcharr launching with:"
+bashio::log.info "- concurrency: $CELERY_WORKER_CONCURRENCY"
+bashio::log.info "- workers: $UWSGI_PROCESSES"
+bashio::log.info "- gevent: $UWSGI_GEVENT"
+
+# Appel du vrai entrypoint de l’image
+exec /app/docker/entrypoint.sh
