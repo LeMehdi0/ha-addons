@@ -5,8 +5,8 @@
   "version": "latest",
   "startup": "services",
   "boot": "auto",
-  "image": "ghcr.io/lemehdi0/m3u-editor"
-  "url": "https://github.com/sparkison/m3u-editor",
+  "image": "ghcr.io/lemehdi0/m3u-editor",
+  "url": "https://github.com/LeMehdi0/ha-addons",
   "arch": ["aarch64", "armv7", "amd64"],
   "ingress": true,
   "ingress_port": 36400,
@@ -17,7 +17,6 @@
     "19193/tcp": 36800,
     "5004/udp": 5004
   },
-  "map": ["share:rw"],
   "options": {
     "TZ": "Africa/Casablanca",
     "APP_KEY": "",
