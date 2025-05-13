@@ -2,7 +2,7 @@
   "name": "M3U Editor",
   "slug": "m3u_editor",
   "description": "Playlist & EPG proxy with HDHomeRun output",
-  "version": "latest",
+  "version": "latest_1",
   "startup": "services",
   "boot": "auto",
   "image": "sparkison/m3u-editor",
