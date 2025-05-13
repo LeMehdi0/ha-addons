@@ -5,27 +5,18 @@
   "version": "0.1.0",
   "startup": "services",
   "boot": "auto",
-
-  // image multi-arch officielle
   "image": "sparkison/m3u-editor:latest",
   "url": "https://github.com/sparkison/m3u-editor",
-
   "arch": ["aarch64", "armv7", "amd64"],
-
-  /* ---------- Ingress ---------- */
   "ingress": true,
   "ingress_port": 36400,
   "ingress_entry": "/",
   "panel_icon": "mdi:playlist-edit",
-
-  /* ---------- Exposition facultative ---------- */
   "ports": {
-    "19192/tcp": 36400,   // UI/API direct en LAN (change si tu veux)
-    "19193/tcp": 36800,   // WebSockets (optionnel, mais je le mappe)
-    "5004/udp": 5004      // HDHomeRun pour Plex/Jellyfin
+    "19192/tcp": 36400,
+    "19193/tcp": 36800,
+    "5004/udp": 5004
   },
-
-  /* ---------- Dossiers & variables ---------- */
   "map": ["share:rw"],
   "options": {
     "TZ": "Africa/Casablanca",
