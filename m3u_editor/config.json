@@ -2,7 +2,7 @@
   "name": "M3U Editor",
   "slug": "m3u_editor",
   "description": "Self-hosted playlist + EPG manager with HDHomeRun proxy",
-  "version": "0.5.8",
+  "version": "0.5.8.1",
   "startup": "services",
   "boot": "auto",
 
