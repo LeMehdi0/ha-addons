@@ -6,13 +6,12 @@
   "startup": "services",
   "boot": "auto",
 
-  /* pull the image you published on GHCR */
+
   "image": "ghcr.io/lemehdi0/m3u-editor",
 
   "url": "https://github.com/LeMehdi0/m3u-editor",
   "arch": ["aarch64", "armv7", "amd64"],
 
-  /* Ingress = it opens inside HA */
   "ingress": true,
   "ingress_port": 36400,
   "ingress_entry": "/",
@@ -23,12 +22,11 @@
     "36800/tcp": 36800
   },
 
-  /* make /data show up under /share/m3u_editor on the host */
   "map": ["share:rw"],
 
   "options": {
     "TZ": "UTC",
-    "DB_CONNECTION": "sqlite",      /* or pgsql */
+    "DB_CONNECTION": "sqlite",      
     "PG_DATABASE": "",
     "PG_USER": "",
     "PG_PASSWORD": "",
