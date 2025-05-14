@@ -1,9 +1,10 @@
-# tiny HA wrapper – just adds our symlink + option handling
-FROM ghcr.io/lemehdi0/m3u-editor
+# Use your published, HA-friendly image (ha tag or versioned)
+ARG BUILD_FROM=ghcr.io/LeMehdi0/m3u-editor:0.5.8.1
+FROM ${BUILD_FROM}
 
-# add the HA bootstrap script
+# Copy in our HA wrapper
 COPY run.sh /run.sh
-RUN chmod +x /run.sh
+RUN chmod a+x /run.sh
 
-# run.sh sets up /data → /var/www/config then launches the real entrypoint
+# Entrypoint will set up /data → /var/www/config and then exec the real start-container
 ENTRYPOINT ["/run.sh"]
