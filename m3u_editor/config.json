@@ -1,0 +1,46 @@
+{
+  "name": "M3U Editor",
+  "slug": "m3u_editor",
+  "description": "Self-hosted playlist + EPG manager with HDHomeRun proxy",
+  "version": "0.5.8",
+  "startup": "services",
+  "boot": "auto",
+
+  /* pull the image you published on GHCR */
+  "image": "ghcr.io/lemehdi0/m3u-editor",
+
+  "url": "https://github.com/LeMehdi0/m3u-editor",
+  "arch": ["aarch64", "armv7", "amd64"],
+
+  /* Ingress = it opens inside HA */
+  "ingress": true,
+  "ingress_port": 36400,
+  "ingress_entry": "/",
+  "panel_icon": "mdi:playlist-edit",
+
+  "ports": {
+    "36400/tcp": 36400,
+    "36800/tcp": 36800
+  },
+
+  /* make /data show up under /share/m3u_editor on the host */
+  "map": ["share:rw"],
+
+  "options": {
+    "TZ": "UTC",
+    "DB_CONNECTION": "sqlite",      /* or pgsql */
+    "PG_DATABASE": "",
+    "PG_USER": "",
+    "PG_PASSWORD": "",
+    "PG_PORT": 5432
+  },
+
+  "schema": {
+    "TZ": "str?",
+    "DB_CONNECTION": "str?",
+    "PG_DATABASE": "str?",
+    "PG_USER": "str?",
+    "PG_PASSWORD": "str?",
+    "PG_PORT": "int?"
+  }
+}
